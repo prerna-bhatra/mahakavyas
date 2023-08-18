@@ -29,7 +29,8 @@ export class PuranService {
             }
             const savePuran = await this.puranModel.create({
                 name,
-                description
+                description,
+                image
             })
 
             console.log({ savePuran });
