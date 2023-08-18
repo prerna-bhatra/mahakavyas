@@ -11,7 +11,7 @@ import { Puran, PuranSchema } from './puran/schemas/purans.schema';
     ConfigModule.forRoot(),
     PuranModule,
     MongooseModule.forRoot(
-      process.env.MONGODB_URL
+     'mongodb+srv://prerna1998:mp9jG7boQpNfBRDd@cluster0.psnyapm.mongodb.net/maha-kavyas'
     ),
 
     MongooseModule.forFeature([
