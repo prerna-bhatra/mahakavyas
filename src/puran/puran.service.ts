@@ -45,6 +45,21 @@ export class PuranService {
 
     }
 
+    async getAllPurans() {
+        try {
+
+            const purans = await this.puranModel.find()
+
+            return {
+                success: true,
+                data: purans
+            }
+
+        } catch (error) {
+            throw error
+        }
+    }
+
     async addChapter({
         puranId,
         title,
@@ -92,10 +107,10 @@ export class PuranService {
         puranId
     ) {
         try {
-            const chapters = await this.chapterModel.find({puranId})
+            const chapters = await this.chapterModel.find({ puranId })
             return {
-                data:chapters,
-                success:true
+                data: chapters,
+                success: true
             }
 
         } catch (error) {
@@ -109,10 +124,10 @@ export class PuranService {
         chapterId
     ) {
         try {
-            const chapter = await this.chapterModel.find({_id:chapterId})
+            const chapter = await this.chapterModel.find({ _id: chapterId })
             return {
-                data:chapter,
-                success:true
+                data: chapter,
+                success: true
             }
 
         } catch (error) {

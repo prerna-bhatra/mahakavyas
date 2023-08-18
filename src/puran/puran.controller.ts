@@ -1,4 +1,4 @@
-import { Body, Controller, Post, Req } from '@nestjs/common';
+import { Body, Controller, Get, Post, Req } from '@nestjs/common';
 import { PuranService } from './puran.service';
 
 @Controller('puran')
@@ -9,6 +9,12 @@ export class PuranController {
     async create(@Body() puranBody) {
         return await this.puranservice.addPuran(puranBody)
 
+    }
+
+
+    @Get()
+    async purans() {
+        return await this.puranservice.getAllPurans()
     }
 
     @Post('chapter')
