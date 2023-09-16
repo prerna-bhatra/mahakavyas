@@ -11,7 +11,6 @@ export class PuranController {
 
     }
 
-
     @Get()
     async purans() {
         return await this.puranservice.getAllPurans()
