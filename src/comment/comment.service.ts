@@ -11,6 +11,8 @@ export class CommentService {
 
     async create({ userId, content, chapterId }) {
         try {
+            console.log("create ");
+            
             if (!content.trim().length || !chapterId) {
                 return {
                     success: false,

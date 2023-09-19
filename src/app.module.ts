@@ -12,6 +12,9 @@ import { JwtModule } from '@nestjs/jwt';
 import { CommentService } from './comment/comment.service';
 import { CommentController } from './comment/comment.controller';
 import { Comment ,CommentSchema } from './puran/schemas/comments.model';
+import { StoriesService } from './stories/stories.service';
+import { StoriesController } from './stories/stories.controller';
+import { Story, StorySchema } from './stories/schemas/stories.schema';
 
 @Module({
   imports: [
@@ -28,8 +31,9 @@ import { Comment ,CommentSchema } from './puran/schemas/comments.model';
       { name: Puran.name, schema: PuranSchema },
       { name: User.name, schema: UserSchema },
       { name: Comment.name, schema: CommentSchema },
+      { name: Story.name, schema: StorySchema },
     ])],
-  controllers: [AppController, UserController, CommentController],
-  providers: [AppService, UserService, CommentService],
+  controllers: [AppController, UserController, CommentController, StoriesController],
+  providers: [AppService, UserService, CommentService, StoriesService],
 })
 export class AppModule { }
