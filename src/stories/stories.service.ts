@@ -30,6 +30,11 @@ export class StoriesService {
             page = parseInt(page);
             limit = parseInt(limit);
 
+            const totalCount = await this.storyModel.countDocuments(); // Get the total count of documents
+
+            const totalPages = Math.ceil(totalCount / limit);
+
+
             const skip = (page - 1) * limit;
             const results = await this.storyModel
                 .find()
@@ -37,7 +42,10 @@ export class StoriesService {
                 .limit(limit)
                 .exec();
 
-            return results;
+            return {
+                totalPages,
+                results
+            };
         } catch (error) {
             throw error;
         }
